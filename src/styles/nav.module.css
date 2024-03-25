@@ -1,0 +1,43 @@
+.navContainer {
+  background-color: rgb(255, 255, 255);
+  height: 100vh;
+  width: 10vh;
+  align-content: center;
+}
+
+.navInnerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background-color: red; */
+  height: 50%;
+  width: 100%;
+  padding: 0;
+}
+
+.navInnerContainer li {
+  /* background-color: aqua; */
+  width: 100%;
+  height: 20%;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navInnerContainer li:hover {
+  background-color: #eff1f7c0;
+  z-index: 99;
+  cursor: pointer;
+  border: 5px solid #eff1f7c0;
+  border-left: 5px solid #ff6c6f;
+  box-sizing: border-box;
+}
+
+.navInnerContainer li:hover .icon {
+  filter: brightness(90%);
+}
+
+.icon {
+  transition: filter 1s;
+}
