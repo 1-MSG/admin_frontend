@@ -1,0 +1,129 @@
+/*영업 이익*/
+
+.productPageRightTopContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 20vh;
+  width: 100%;
+  padding-top: 3vh;
+}
+.productPageRightTopContainerE {
+  background-color: #ff6c6f;
+  width: 30%;
+  height: 90%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 0px 0px 3px 1px rgb(161, 161, 161);
+}
+
+.productPageRightTopContainerEValue {
+  color: white;
+  font-size: 12px;
+}
+.productPageRightTopContainerTitle {
+  background: #d8484a;
+  position: absolute;
+  padding: 3px;
+  width: 70px;
+  margin-top: -8%;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-size: 10px;
+}
+
+/*총 상품 개수 */
+.productPageRightbodyContainer {
+  width: 100%;
+  /* background-color: rgb(111, 143, 55); */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 47vh;
+  width: 100%;
+}
+.productPageRightbodyContainerLayout {
+  background-color: #ffffff;
+  width: 95%;
+  height: 90%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 3px 1px rgb(202, 202, 202);
+  display: flex;
+}
+.productPageRightbodyContainerLayoutLeft {
+  /* background-color: aqua; */
+  height: 100%;
+  width: 60%;
+}
+.productPageRightbodyContainerLayoutLeftTitle {
+  /* background-color: red; */
+  margin-top: 2vh;
+  width: fit-content;
+  margin-left: 2vh;
+}
+.productPageRightbodyContainerLayoutRight {
+  background-color: green;
+  height: 100%;
+  width: 40%;
+}
+
+/*연합 목록*/
+.productPageRightBottomLayout {
+  /* background-color: blue; */
+  margin-top: 10px;
+}
+.productPageRightBottomTitle {
+  font-weight: bold;
+  background-color: #d8484a;
+  width: fit-content;
+  border-radius: 5px;
+  margin-left: 2.5%;
+  padding: 0.5%;
+  color: #ffffff;
+  font-size: 11px;
+}
+.productPageRightBottomContainer {
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: space-evenly;
+  height: 21vh;
+  width: 100%;
+  display: flex;
+  padding-top: 1vh;
+}
+.productPageRightBottomContainerList {
+  background-color: #ffffff;
+  width: 95%;
+  height: 19vh;
+  border-radius: 10px;
+  box-shadow: 0px 0px 3px 1px rgb(202, 202, 202);
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+  padding-bottom: 1%;
+}
+.productPageRightBottomContainerList::-webkit-scrollbar {
+  background-color: #ffffff00; /* 스크롤바 트랙의 배경색상 변경 */
+  width: 8px; /* 스크롤바의 높이 조절 */
+  cursor: pointer;
+}
+
+.productPageRightBottomContainerList::-webkit-scrollbar-thumb {
+  background-color: #ff6c6f00; /* 스크롤바 색상 변경 */
+  cursor: pointer;
+}
+
+.productPageRightBottomContainerList div {
+  background-color: #ff6c6f;
+  width: 128px;
+  height: fit-content;
+  font-size: 12px;
+  margin-top: 1%;
+  margin-left: 12px;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+}
