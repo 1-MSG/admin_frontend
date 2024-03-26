@@ -1,12 +1,12 @@
 import styles from "@/styles/main.module.css";
 import Image from "next/image";
-import Chart from "@/app/(main)/_components/Chart";
+import CardLineChart from "@/app/(main)/_components/Chart";
 import event from "@/assets/image/events/event.png";
 
 export default function Home() {
   return (
     <main className={styles.mainPageLeftBody}>
-      <Chart />
+      <CardLineChart />
 
       <div
         style={{
