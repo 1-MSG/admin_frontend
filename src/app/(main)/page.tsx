@@ -45,7 +45,7 @@ export default function Home() {
               src={event}
               alt=""
               style={{
-                width: "230px",
+                width: "242px",
                 height: "120px",
                 display: "inline-block",
                 borderRadius: "5px",
@@ -55,18 +55,7 @@ export default function Home() {
               src={event}
               alt=""
               style={{
-                width: "230px",
-                height: "120px",
-                marginLeft: "12px",
-                display: "inline-block",
-                borderRadius: "5px",
-              }}
-            />
-            <Image
-              src={event}
-              alt=""
-              style={{
-                width: "230px",
+                width: "242px",
                 height: "120px",
                 marginLeft: "12px",
                 display: "inline-block",
@@ -77,7 +66,7 @@ export default function Home() {
               src={event}
               alt=""
               style={{
-                width: "230px",
+                width: "242px",
                 height: "120px",
                 marginLeft: "12px",
                 display: "inline-block",
@@ -88,7 +77,7 @@ export default function Home() {
               src={event}
               alt=""
               style={{
-                width: "230px",
+                width: "242px",
                 height: "120px",
                 marginLeft: "12px",
                 display: "inline-block",
@@ -99,7 +88,18 @@ export default function Home() {
               src={event}
               alt=""
               style={{
-                width: "230px",
+                width: "242px",
+                height: "120px",
+                marginLeft: "12px",
+                display: "inline-block",
+                borderRadius: "5px",
+              }}
+            />
+            <Image
+              src={event}
+              alt=""
+              style={{
+                width: "242px",
                 height: "120px",
                 marginLeft: "12px",
                 display: "inline-block",

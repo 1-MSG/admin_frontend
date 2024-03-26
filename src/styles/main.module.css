@@ -146,3 +146,83 @@
   padding-left: 3%;
   padding-right: 3%;
 }
+
+/*메인페이지 오른쪽 화면 퍼블리싱*/
+.mainPageRightContainer {
+  /* background-color: rgb(219, 36, 36); */
+  width: 90%;
+  height: 100%;
+}
+.mainPageRightContainer p {
+  /* background-color: aqua; */
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4vh;
+}
+.mainPageRightContainerCircle {
+  font-size: 10px;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0px 0px 5px 5px rgb(230, 230, 230);
+}
+.mainPageRightContainerInnerCircle {
+  width: 85%;
+  height: 85%;
+  border-radius: inherit;
+  background-color: #ffffff;
+  margin: auto;
+  display: flex;
+  color: white;
+  justify-content: center;
+  box-shadow: 0px 0px 5px 2px rgb(230, 230, 230);
+}
+.mainPageRightContainerInnerCircle span {
+  color: #ff6c6f;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+}
+.mainPageRightContainerRate {
+  background-color: #f3f3f3;
+  width: 100%;
+  height: 10vh;
+  border-radius: 5px;
+  margin-top: 2vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 0px 2px 1px rgb(203, 203, 203);
+}
+.mainPageRightContainerRateTitle {
+  font-size: 13px;
+  margin-left: 30px;
+}
+.mainPageRightContainerRateValue {
+  font-size: 25px;
+  color: #ff6c6f;
+  font-weight: bold;
+  margin-right: 30px;
+}
+.mainPageRightContainerRateBtn {
+  width: 100%;
+  height: 7vh;
+  margin-top: 2vh;
+  border-radius: 5px;
+  border: none;
+  background-color: #ff6c6f;
+  color: white;
+  font-size: 20px;
+  box-shadow: 0px 0px 2px 1px rgb(117, 117, 117);
+}
+.mainPageRightContainerRateBtn:hover {
+  cursor: pointer;
+  background-color: #c75759;
+}

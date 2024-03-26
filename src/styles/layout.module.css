@@ -10,9 +10,14 @@
   /* background-color: aqua; */
   width: 70%;
   height: 100vh;
+  margin-left: 10vh;
 }
 .mainPageRight {
   background-color: rgb(255, 255, 255);
   width: 30%;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 5px rgba(153, 153, 153, 0.3);
 }
