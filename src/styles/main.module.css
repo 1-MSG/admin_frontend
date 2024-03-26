@@ -126,10 +126,21 @@
   border-radius: 0px 5px 5px 0px;
 }
 
+.xScroll::-webkit-scrollbar {
+  background-color: #ffffff; /* 스크롤바 트랙의 배경색상 변경 */
+  height: 8px; /* 스크롤바의 높이 조절 */
+  cursor: pointer;
+}
+
+.xScroll::-webkit-scrollbar-thumb {
+  background-color: #ff6c6f; /* 스크롤바 색상 변경 */
+  cursor: pointer;
+}
+
 /*시스템 */
 .mainPageLeftBody {
   position: relative;
-  background-color: rgb(194, 221, 41);
+  /* background-color: rgb(194, 221, 41); */
   width: 94%;
   height: 57vh;
   padding-left: 3%;
