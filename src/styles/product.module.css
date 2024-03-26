@@ -65,9 +65,108 @@
   margin-left: 2vh;
 }
 .productPageRightbodyContainerLayoutRight {
-  background-color: green;
+  /* background-color: green; */
   height: 100%;
   width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productPageRightbodyContainerLayoutRightContainer {
+  background-color: #ffffff;
+  width: 90%;
+  height: 90%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px 1px rgb(202, 202, 202);
+}
+.productPageRightbodyContainerLayoutRightContainerE {
+  width: 94%;
+  /* background-color: green; */
+  height: 87%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+  justify-content: center;
+  padding: 3%;
+}
+.productPageRightbodyContainerLayoutRightContainerE::-webkit-scrollbar {
+  background-color: #00000000; /* 스크롤바 트랙의 배경색상 변경 */
+  width: 0.1px; /* 스크롤바의 높이 조절 */
+  cursor: pointer;
+}
+
+.productPageRightbodyContainerLayoutRightContainerE::-webkit-scrollbar-thumb {
+  background-color: #00000000; /* 스크롤바 트랙의 배경색상 변경 */
+  cursor: pointer;
+}
+.elementRankLayout {
+  display: flex;
+  background-color: rgb(237, 237, 237);
+  width: 95%;
+  height: 20%;
+  margin-top: 3%;
+  border-radius: 5px;
+}
+.elementRankNumber {
+  width: 17%;
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(
+    to left,
+    red,
+    #f33a3d,
+    #ff6c6f
+  ); /* 빨간색에서 파란색으로의 세로 그라데이션 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 1%;
+  margin-top: -1%;
+  border-radius: 5px;
+}
+.elementRankInfoContainer {
+  height: 100%;
+  width: 50%;
+  /* background: green; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.elementRankInfoContainer div:first-child {
+  text-align: center;
+  font-size: 11px;
+  font-weight: bold;
+  /* background-color: red; */
+}
+
+.elementRankInfoContainer div:nth-child(2) {
+  text-align: center;
+  font-size: 8px;
+  font-weight: bold;
+  color: grey;
+}
+
+.elementRankInfoContainer div:nth-child(3) {
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  color: #d8484a;
+}
+.icon2 {
+  height: 100%;
+  width: 16%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.icon2:hover {
+  background-color: #d4d4d4;
 }
 
 /*연합 목록*/
