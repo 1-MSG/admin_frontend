@@ -23,14 +23,9 @@ function Nav() {
         </li>
 
         <li>
-          <FaUserFriends className={styles.icon} size={40} color="#FF6C6F" />
-        </li>
-        <li>
-          <RiCustomerService2Fill
-            className={styles.icon}
-            size={40}
-            color="#FF6C6F"
-          />
+          <Link href={"/user"}>
+            <FaUserFriends className={styles.icon} size={40} color="#FF6C6F" />
+          </Link>
         </li>
       </ul>
     </div>
