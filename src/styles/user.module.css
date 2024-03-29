@@ -1,0 +1,291 @@
+/*유저 테이블*/
+
+.userAllContainer {
+  /* background-color: blanchedalmond; */
+  width: 100%;
+  height: 100vh;
+}
+.userInfoContainer {
+  /* background-color: rgb(236, 142, 0); */
+  width: 100%;
+  height: 25vh;
+  display: flex;
+  padding-top: 3.5vh;
+}
+.userInfoCountainerE1 {
+  background-color: rgb(255, 255, 255);
+  width: 13%;
+  height: 100%;
+  margin-left: 13.5vh;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(74, 74, 74, 0.5); /* 그림자 속성 */
+}
+.userInfoCountainerE2 {
+  background-color: rgb(255, 255, 255);
+  width: 13%;
+  height: 100%;
+  margin-left: 3.5vh;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(74, 74, 74, 0.5); /* 그림자 속성 */
+}
+.userInfoCountainerE3 {
+  background-color: #ff6c6f;
+  width: 13%;
+  height: 100%;
+  margin-left: 3.5vh;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(74, 74, 74, 0.5); /* 그림자 속성 */
+}
+
+/*유저 관리*/
+.userManageContainer {
+  /* background-color: yellow; */
+  width: 100%;
+  height: 15%;
+  padding-top: 3.5vh;
+}
+.userManageLayout {
+  background-color: #ff6c6f;
+  height: 100%;
+  width: 92%;
+  margin-left: 13.5vh;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(74, 74, 74, 0.5); /* 그림자 속성 */
+}
+
+/*유저 리스트*/
+.userListContainer {
+  /* background-color: yellow; */
+  width: 100%;
+  height: 45%;
+  padding-top: 3.5vh;
+}
+.userListCategoryContainer {
+  width: 100%;
+  /* background-color: red; */
+  height: 5vh;
+  display: flex;
+}
+.userListCategoryE1 {
+  width: 8%;
+  /* background-color: green; */
+  height: 100%;
+  margin-left: 13.5vh;
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+.userListCategoryE2 {
+  width: 3%;
+  /* background-color: green; */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  color: rgb(206, 206, 206);
+}
+.userListCategoryE3 {
+  width: 6%;
+  /* background-color: green; */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  color: rgb(206, 206, 206);
+}
+.userListLayout {
+  background-color: #ffffff;
+  height: 88%;
+  width: 92%;
+  margin-left: 13.5vh;
+  margin-top: 0.5vh;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(74, 74, 74, 0.5); /* 그림자 속성 */
+}
+.userPageForm {
+  width: 98%;
+  display: flex;
+  /* background-color: green; */
+  height: 4vh;
+  padding-left: 1vh;
+  padding-top: 1vh;
+}
+.userPageSearchContainerInput {
+  width: 15%;
+  border: none;
+  border-radius: 5px 0px 0px 5px;
+  outline: none;
+  border: 1px solid rgb(230, 230, 230);
+  text-align: center;
+}
+.userPageSearchContainerBtn {
+  width: 3%;
+  border: none;
+  border-radius: 0px 5px 5px 0px;
+  outline: none;
+}
+.userListTitle {
+  width: 100%;
+  /* background-color: rgb(4, 248, 147); */
+  height: 3vh;
+  margin-top: 1vh;
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+}
+.userListTitleE1 {
+  /* background-color: red; */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5%;
+}
+.userListTitleE2 {
+  /* background-color: rgb(0, 56, 242); */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+}
+.userListTitleE3 {
+  /* background-color: rgb(0, 247, 70); */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+}
+.userListTitleE4 {
+  /* background-color: rgb(18, 255, 204); */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+}
+.userListTitleE5 {
+  /* background-color: rgb(202, 208, 27); */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 9%;
+}
+.userListTitleE6 {
+  /* background-color: rgb(121, 1, 77); */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+}
+.userListTitleE7 {
+  /* background-color: rgb(146, 245, 163); */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+}
+.userListScroll {
+  width: 100%;
+  /* background-color: blue; */
+  height: 27vh;
+  overflow: auto;
+  padding-bottom: 1vh;
+}
+.userListScroll::-webkit-scrollbar {
+  background-color: #00000000; /* 스크롤바 트랙의 배경색상 변경 */
+  width: 0.1px; /* 스크롤바의 높이 조절 */
+  cursor: pointer;
+}
+
+.userListScroll::-webkit-scrollbar-thumb {
+  background-color: #00000000; /* 스크롤바 트랙의 배경색상 변경 */
+  cursor: pointer;
+}
+.userListE {
+  width: 99%;
+  height: 5vh;
+  margin-left: 1vh;
+  border-bottom: 1px solid #e2e2e2;
+  margin-top: 1vh;
+  display: flex;
+}
+.userListE1 {
+  /* background-color: red; */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5%;
+  color: #ff6c6f;
+  font-size: 13px;
+  font-weight: bold;
+}
+.userListE2 {
+  /* background-color: rgb(0, 56, 242); */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10.1%;
+  font-size: 13px;
+  font-weight: bold;
+}
+.userListE3 {
+  /* background-color: rgb(0, 247, 70); */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35.4%;
+  font-size: 13px;
+  font-weight: bold;
+}
+.userListE4 {
+  /* background-color: rgb(18, 255, 204); */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10.1%;
+  font-size: 13px;
+  font-weight: bold;
+}
+.userListE5 {
+  /* background-color: rgb(202, 208, 27); */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 9.1%;
+  font-size: 13px;
+  font-weight: bold;
+}
+.userListE6 {
+  /* background-color: rgb(121, 1, 77); */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15.2%;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.userListE7 {
+  /* background-color: rgb(146, 245, 163); */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15.1%;
+  font-size: 13px;
+  font-weight: bold;
+}
