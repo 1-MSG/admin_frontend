@@ -1,6 +1,7 @@
 import styles from "@/styles/user.module.css";
 import UserManage from "./_components/UserManage";
 import { FaSearch } from "react-icons/fa";
+import Chart from "@/app/user/_components/Chart";
 
 export default function Page() {
   async function handleSearchSubmit(formData: any) {
@@ -34,12 +35,22 @@ export default function Page() {
 
   return (
     <main className={styles.userAllContainer}>
-      <div className={styles.userInfoContainer}>
-        <div className={styles.userInfoCountainerE1}></div>
-        <div className={styles.userInfoCountainerE2}></div>
-        <div className={styles.userInfoCountainerE3}></div>
+      <div className={styles.userInfoLayout}>
+        <div className={styles.userInfoLayout1}>
+          <div className={styles.userInfoContainer}>
+            <div className={styles.userInfoCountainerE1}>
+              <div className={styles.mainPageLeftHeaderElement1Count}>2024</div>
+              <p>전체 회원 수</p>
+            </div>
+
+            <div className={styles.userInfoCountainerE3}>
+              <Chart />
+            </div>
+          </div>
+          <UserManage />
+        </div>
+        <div className={styles.userInfoLayout2}>판도라의 상자</div>
       </div>
-      <UserManage />
       <div className={styles.userListContainer}>
         <div className={styles.userListCategoryContainer}>
           <div className={styles.userListCategoryE1}>User List</div>
