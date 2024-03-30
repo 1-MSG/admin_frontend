@@ -104,7 +104,7 @@ export default function CardLineChart() {
 
       {/* Chart */}
       <div className="relative h-350-px" style={{ marginTop: "10px" }}>
-        <canvas id="line-chart" height="100"></canvas>
+        <canvas id="line-chart" height="90"></canvas>
       </div>
     </>
   );
