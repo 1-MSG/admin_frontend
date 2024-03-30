@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import styles from "@/styles/layout.module.css";
+import RQProvider from "./RQProvider";
 
 type Props = {
   children: ReactNode;
@@ -20,7 +21,9 @@ export default function Layout({
         {children}
         {registeredUnion}
       </div>
-      <div className={styles.productPageRight}>{productInfo}</div>
+      <RQProvider>
+        <div className={styles.productPageRight}>{productInfo}</div>
+      </RQProvider>
     </div>
   );
 }
