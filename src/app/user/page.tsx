@@ -49,6 +49,7 @@ export default function Page() {
           </div>
           <UserManage />
         </div>
+        {/* 채팅 */}
         <div className={styles.userInfoLayout2}>판도라의 상자</div>
       </div>
       <div className={styles.userListContainer}>
