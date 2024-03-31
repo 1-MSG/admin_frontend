@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/layout/Nav";
+import RQProvider from "./product/RQProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Nav />
-        {children}
+        <RQProvider>
+          <Nav />
+          {children}
+        </RQProvider>
       </body>
     </html>
   );
