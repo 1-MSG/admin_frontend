@@ -21,9 +21,9 @@ export default function Layout({
         {children}
         {registeredUnion}
       </div>
-      <RQProvider>
-        <div className={styles.productPageRight}>{productInfo}</div>
-      </RQProvider>
+      {/* <RQProvider> */}
+      <div className={styles.productPageRight}>{productInfo}</div>
+      {/* </RQProvider> */}
     </div>
   );
 }
