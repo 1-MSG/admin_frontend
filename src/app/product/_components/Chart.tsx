@@ -2,25 +2,24 @@
 
 import React, { useEffect, useRef } from "react";
 import Chart from "chart.js";
+interface Product {
+  product_id: number;
+  product_name: string;
+  value: string;
+}
 
-const RankChart = () => {
+interface RankChartProps {
+  productValue: Product[];
+}
+
+const RankChart: React.FC<RankChartProps> = ({ productValue }) => {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
 
+  // console.log(labels);
+  // console.log(data);
   useEffect(() => {
-    const labels = [
-      "항목1",
-      "항목2",
-      "항목3",
-      "항목4",
-      "항목5",
-      "항목6",
-      "항목7",
-      "항목8",
-      "항목9",
-      "항목10",
-      "항목11",
-    ];
-    const data = [110, 100, 90, 80, 70, 60, 50, 40, 30, 20, 10];
+    const labels = productValue.map((item) => item.product_name); // 각 항목의 이름 추출
+    const data = productValue.map((item) => parseInt(item.value)); // 각 항목의 값 추출
 
     const ctx: any = chartRef.current?.getContext("2d");
     new Chart(ctx, {
