@@ -3,20 +3,35 @@ import RankChart from "@/app/product/_components/Chart";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { FaSearchPlus } from "react-icons/fa";
 
-export default function Page() {
-  const products = [
-    { name: "데님셔츠 마르세유", brand: "지오다노", price: "87,000" },
-    { name: "데님셔츠 마르세유", brand: "지오다노", price: "87,000" },
-    { name: "데님셔츠 마르세유", brand: "지오다노", price: "87,000" },
-    { name: "데님셔츠 마르세유", brand: "지오다노", price: "87,000" },
-    { name: "데님셔츠 마르세유", brand: "지오다노", price: "87,000" },
-    { name: "데님셔츠 마르세유", brand: "지오다노", price: "87,000" },
-    { name: "데님셔츠 마르세유", brand: "지오다노", price: "87,000" },
-    { name: "데님셔츠 마르세유", brand: "지오다노", price: "87,000" },
-    { name: "데님셔츠 마르세유", brand: "지오다노", price: "87,000" },
-    { name: "데님셔츠 마르세유", brand: "지오다노", price: "87,000" },
-    { name: "데님셔츠 마르세유", brand: "지오다노", price: "87,000" },
-  ];
+async function getBestProductValueData() {
+  const res = await fetch(
+    "https://gist.githubusercontent.com/YOON-CC/fdb23f375722de36b3175d0715f1519b/raw/277907d0698f9bf88ecc15be71d02256ac678d40/bestPorductValue.json"
+  );
+  if (!res.ok) {
+    throw new Error("Network Error");
+  }
+  const data = await res.json();
+
+  return data.products;
+}
+
+async function getBestProductData() {
+  const res = await fetch(
+    "https://gist.githubusercontent.com/YOON-CC/2451c25abc4a7b690a0723957cc5c46a/raw/136d77dd3c71414ef1798ef320d1e43b0975fb15/bestPorduct.json"
+  );
+  if (!res.ok) {
+    throw new Error("Network Error");
+  }
+  const data = await res.json();
+
+  return data.products;
+}
+
+export default async function Page() {
+  const productsValue = await getBestProductValueData();
+  console.log(productsValue);
+  const products = await getBestProductData();
+  // console.log(products);
 
   return (
     <main className={styles.productPageRightbodyContainer}>
@@ -25,7 +40,7 @@ export default function Page() {
           <h3 className={styles.productPageRightbodyContainerLayoutLeftTitle}>
             BEST 11
           </h3>
-          <RankChart />
+          <RankChart productValue={productsValue} />
         </div>
         <div className={styles.productPageRightbodyContainerLayoutRight}>
           <div
@@ -36,12 +51,12 @@ export default function Page() {
                 styles.productPageRightbodyContainerLayoutRightContainerE
               }
             >
-              {products.map((product, index) => (
+              {products.map((product: any, index: any) => (
                 <div key={index} className={styles.elementRankLayout}>
                   <div className={styles.elementRankNumber}>{index + 1}</div>
                   <div className={styles.elementRankInfoContainer}>
-                    <div>{product.name}</div>
-                    <div>{product.brand}</div>
+                    <div>{product.product_name}</div>
+                    <div>{product.category}</div>
                     <div>{product.price}</div>
                   </div>
                   <div className={styles.icon2}>
