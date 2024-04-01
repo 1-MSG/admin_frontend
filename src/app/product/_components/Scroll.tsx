@@ -23,18 +23,22 @@ export default function Scroll({ keyword }: ScrollProps) {
       }
 
       const data = await response.json();
+      console.log("준표", data);
 
       //이건 가짜
       const products = data.data.searchProductDtos.map(
         (item: { productId: any }) => item.productId
       );
+
+      console.log("준표한테 받은 데이터 > 이현님", products);
+
       const data1 = await fetch(
         `/api/test?productId=${JSON.stringify(products)}`
       );
       const data2 = await data1.json();
+      console.log("최종적으로 보내는ㄴ api", data2);
 
       return data2;
-      // console.log(data2);
 
       //이게 진짜
       // return data.data.searchProductDtos;
