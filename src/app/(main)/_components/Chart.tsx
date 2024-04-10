@@ -3,7 +3,33 @@
 import React, { useEffect } from "react";
 import Chart from "chart.js";
 
-export default function CardLineChart() {
+interface MonthData {
+  year: number;
+  month: string;
+  count: number;
+}
+interface Props {
+  data: MonthData[][];
+}
+
+export default function ChildComponent({ data }: Props) {
+  console.log(data);
+  // temp1, temp2 배열 생성
+  const preYear: (number | null)[] = [];
+  const currentYear: (number | null)[] = [];
+  data.forEach((yearData) => {
+    yearData.forEach((monthData) => {
+      if (monthData.year === 2023) {
+        preYear.push(monthData.count === 0 ? null : monthData.count);
+      } else if (monthData.year === 2024) {
+        currentYear.push(monthData.count === 0 ? null : monthData.count);
+      }
+    });
+  });
+
+  console.log("temp1:", preYear);
+  console.log("temp2:", currentYear);
+
   useEffect(() => {
     const data = {
       labels: [
@@ -25,14 +51,14 @@ export default function CardLineChart() {
           label: new Date().getFullYear().toString(),
           backgroundColor: "#ff6c6f",
           borderColor: "#ff6c6f",
-          data: [65, 78, 66, 44, 56, 67, 75, 65, 78, 66, 44, 56, 67, 75],
+          data: currentYear,
           fill: false,
         },
         {
           label: (new Date().getFullYear() - 1).toString(),
           backgroundColor: "grey",
           borderColor: "grey",
-          data: [40, 68, 86, 74, 56, 60, 87, 56, 67, 75, 65, 78, 66, 44],
+          data: preYear,
           fill: false,
         },
       ],

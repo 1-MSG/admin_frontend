@@ -15,7 +15,7 @@ export default function Scroll({ keyword }: ScrollProps) {
   const fetchPosts = async ({ pageParam = 1 }: { pageParam?: number }) => {
     try {
       const response = await fetch(
-        `https://sssg.shop/api/v1/search?keyword=${keyword}&index=${pageParam}`
+        `https://sssg.shop/api/v1/search?keyword=${keyword}&pageable=${pageParam}`
       );
 
       if (!response.ok) {
@@ -33,7 +33,9 @@ export default function Scroll({ keyword }: ScrollProps) {
       console.log("준표한테 받은 데이터 > 이현님", products);
 
       const data1 = await fetch(
-        `/api/test?productId=${JSON.stringify(products)}`
+        `https://sssg.shop/api/v1/products?productIds=${JSON.stringify(
+          products
+        )}`
       );
       const data2 = await data1.json();
       console.log("최종적으로 보내는ㄴ api", data2);

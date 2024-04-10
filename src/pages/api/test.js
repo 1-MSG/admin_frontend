@@ -14,7 +14,7 @@ export default function handler(req, res) {
 
   // 200개의 더미 제품 데이터 생성
   const products = {};
-  for (let i = 1; i <= 200; i++) {
+  for (let i = 1; i <= 2000; i++) {
     products[i] = {
       productId: i,
       name: `제품${i}`,

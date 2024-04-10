@@ -3,10 +3,23 @@ import Image from "next/image";
 import CardLineChart from "@/app/(main)/_components/Chart";
 import event from "@/assets/image/events/event.png";
 
-export default function Home() {
+async function getMonthUserData() {
+  const res = await fetch(
+    "https://sssg.shop/api/v1/admin/users/count-monthly-assign"
+  );
+  if (!res.ok) {
+    throw new Error("Network Error");
+  }
+  const data = await res.json();
+  return data.data;
+}
+
+export default async function Home() {
+  const data = await getMonthUserData();
+  console.log(data);
   return (
     <main className={styles.mainPageLeftBody}>
-      <CardLineChart />
+      <CardLineChart data={data} />
 
       <div
         style={{

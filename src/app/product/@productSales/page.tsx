@@ -4,6 +4,7 @@ import { FaSeedling } from "react-icons/fa";
 import { CiDeliveryTruck } from "react-icons/ci";
 
 //환률 api
+
 async function getProductSaleValueExchangeRate() {
   const res = await fetch(
     "https://latest.currency-api.pages.dev/v1/currencies/krw.json"
@@ -18,33 +19,32 @@ async function getProductSaleValueExchangeRate() {
 
 //쇼핑몰 수익 api
 async function getProductSaleValueData() {
-  const res = await fetch("http://localhost:3000/api/sale");
+  const res = await fetch("https://sssg.shop/api/v1/admin/orders-price");
   if (!res.ok) {
     throw new Error("Network Error");
   }
   const data = await res.json();
-
-  return data;
+  console.log(data.data, "dfas");
+  return data.data;
 }
 
 export default async function Page() {
   const data = await getProductSaleValueData();
-  console.log(data);
   const exchange = await getProductSaleValueExchangeRate();
 
   //총 매출 달러 및 유로
-  const totalSaleValueD = data.totalSales * exchange.krw.usd;
-  const totalSaleValueE = data.totalSales * exchange.krw.eur;
+  const totalSaleValueD = data.totalOrderPrice * exchange.krw.usd;
+  const totalSaleValueE = data.totalOrderPrice * exchange.krw.eur;
 
   //총 수익 달러 및 유로
   const profitValueD =
-    (data.totalSales - data.totalShippingCost) * exchange.krw.usd;
+    (data.totalOrderPrice - data.totalDeliveryPrice) * exchange.krw.usd;
   const profitValueE =
-    (data.totalSales - data.totalShippingCost) * exchange.krw.eur;
+    (data.totalOrderPrice - data.totalDeliveryPrice) * exchange.krw.eur;
 
   //총 배달비 달러 및 유로
-  const totalShippingCostD = data.totalShippingCost * exchange.krw.usd;
-  const totalShippingCostE = data.totalShippingCost * exchange.krw.eur;
+  const totalShippingCostD = data.totalDeliveryPrice * exchange.krw.usd;
+  const totalShippingCostE = data.totalDeliveryPrice * exchange.krw.eur;
 
   return (
     <>
@@ -52,7 +52,7 @@ export default async function Page() {
         <div className={styles.productPageRightTopContainerE}>
           <GrProductHunt className={styles.icon} size={80} color="#ffffff" />
           <div className={styles.productPageRightTopContainerEValue}>
-            <p>한화 : {data.totalSales} ₩ </p>
+            <p>한화 : {data.totalOrderPrice} ₩ </p>
             <p>달러 : {totalSaleValueD} $</p>
             <p>유로 : {totalSaleValueE} €</p>
           </div>
@@ -63,7 +63,7 @@ export default async function Page() {
         <div className={styles.productPageRightTopContainerE}>
           <FaSeedling className={styles.icon} size={80} color="#ffffff" />
           <div className={styles.productPageRightTopContainerEValue}>
-            <p>한화 : {data.totalSales - data.totalShippingCost} ₩ </p>
+            <p>한화 : {data.totalOrderPrice - data.totalDeliveryPrice} ₩ </p>
             <p>달러 : {profitValueD} $</p>
             <p>유로 : {profitValueE} €</p>
           </div>
@@ -74,7 +74,7 @@ export default async function Page() {
         <div className={styles.productPageRightTopContainerE}>
           <CiDeliveryTruck className={styles.icon} size={80} color="#ffffff" />
           <div className={styles.productPageRightTopContainerEValue}>
-            <p>한화 : {data.totalShippingCost} ₩ </p>
+            <p>한화 : {data.totalDeliveryPrice} ₩ </p>
             <p>달러 : {totalShippingCostD} $</p>
             <p>유로 : {totalShippingCostE} €</p>
           </div>
