@@ -3,9 +3,12 @@
 import React, { useEffect, useRef } from "react";
 import Chart from "chart.js";
 interface Product {
-  product_id: number;
-  product_name: string;
-  value: string;
+  productId: number;
+  productBrand: string;
+  productName: string;
+  productImage: string;
+  productPrice: number;
+  productSellTotalCount: string;
 }
 
 interface RankChartProps {
@@ -18,8 +21,10 @@ const RankChart: React.FC<RankChartProps> = ({ productValue }) => {
   // console.log(labels);
   // console.log(data);
   useEffect(() => {
-    const labels = productValue.map((item) => item.product_name); // 각 항목의 이름 추출
-    const data = productValue.map((item) => parseInt(item.value)); // 각 항목의 값 추출
+    const labels = productValue.map((item) => item.productBrand); // 각 항목의 이름 추출
+    const data = productValue.map((item) =>
+      parseInt(item.productSellTotalCount)
+    ); // 각 항목의 값 추출
 
     const ctx: any = chartRef.current?.getContext("2d");
     new Chart(ctx, {
