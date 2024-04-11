@@ -2,6 +2,7 @@ import styles from "@/styles/main.module.css";
 import Image from "next/image";
 import CardLineChart from "@/app/(main)/_components/Chart";
 import event from "@/assets/image/events/event.png";
+import TestPerformance from "./_components/TestPerformance";
 
 async function getMonthUserData() {
   const res = await fetch(
@@ -20,7 +21,7 @@ export default async function Home() {
   return (
     <main className={styles.mainPageLeftBody}>
       <CardLineChart data={data} />
-
+      {/* <TestPerformance /> */}
       <div
         style={{
           background: "#ff6c6f",
