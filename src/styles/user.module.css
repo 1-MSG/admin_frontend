@@ -268,12 +268,13 @@
   align-items: center;
   width: 15%;
 }
+
 .userListScroll {
   width: 100%;
   /* background-color: blue; */
-  height: 27vh;
+  height: 60%;
   overflow: auto;
-  padding-bottom: 1vh;
+  padding-bottom: 3%;
 }
 .userListScroll::-webkit-scrollbar {
   background-color: #00000000; /* 스크롤바 트랙의 배경색상 변경 */

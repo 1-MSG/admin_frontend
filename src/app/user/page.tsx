@@ -2,36 +2,36 @@ import styles from "@/styles/user.module.css";
 import UserManage from "./_components/UserManage";
 import { FaSearch } from "react-icons/fa";
 import Chart from "@/app/user/_components/Chart";
+import Scroll from "./_components/Scroll";
 
-export default function Page() {
+async function getUserAllCountData() {
+  const res = await fetch("https://sssg.shop/api/v1/admin/users/count-user");
+  if (!res.ok) {
+    throw new Error("Network Error");
+  }
+  const data = await res.json();
+
+  return data.data.usersCount;
+}
+
+async function getMonthUserData() {
+  const res = await fetch(
+    "https://sssg.shop/api/v1/admin/users/count-monthly-assign"
+  );
+  if (!res.ok) {
+    throw new Error("Network Error");
+  }
+  const data = await res.json();
+  return data.data;
+}
+
+export default async function Page() {
+  const userCountData = await getUserAllCountData();
+  const data = await getMonthUserData();
   async function handleSearchSubmit(formData: any) {
     "use server";
     console.log("검색");
   }
-
-  const userListData = Array.from({ length: 50 }, (_, i) => ({
-    index: i + 1,
-    name: "조윤찬",
-    email: "whdbscks77@gmail.com",
-    info: "간편 회원가입",
-    status: "✅",
-  }));
-
-  const UserListEntry = ({ data }: { data: any }) => (
-    <div className={styles.userListE}>
-      <div className={styles.userListE1}>{data.index}</div>
-      <div className={styles.userListE2}>{data.name}</div>
-      <div className={styles.userListE3}>{data.email}</div>
-      <div className={styles.userListE4}>{data.info}</div>
-      <div className={styles.userListE5}>{data.status}</div>
-      <div className={styles.userListE6}>
-        <button>Black List</button>
-      </div>
-      <div className={styles.userListE7}>
-        <button>Delete</button>
-      </div>
-    </div>
-  );
 
   return (
     <main className={styles.userAllContainer}>
@@ -39,12 +39,14 @@ export default function Page() {
         <div className={styles.userInfoLayout1}>
           <div className={styles.userInfoContainer}>
             <div className={styles.userInfoCountainerE1}>
-              <div className={styles.mainPageLeftHeaderElement1Count}>2024</div>
+              <div className={styles.mainPageLeftHeaderElement1Count}>
+                {userCountData}
+              </div>
               <p>전체 회원 수</p>
             </div>
 
             <div className={styles.userInfoCountainerE3}>
-              <Chart />
+              <Chart data={data} />
             </div>
           </div>
           <UserManage />
@@ -55,8 +57,6 @@ export default function Page() {
       <div className={styles.userListContainer}>
         <div className={styles.userListCategoryContainer}>
           <div className={styles.userListCategoryE1}>User List</div>
-          <div className={styles.userListCategoryE2}>All</div>
-          <div className={styles.userListCategoryE3}>BlackList</div>
         </div>
         <div className={styles.userListLayout}>
           <form className={styles.userPageForm} onSubmit={handleSearchSubmit}>
@@ -74,11 +74,7 @@ export default function Page() {
             <div className={styles.userListTitleE6}>BlackList</div>
             <div className={styles.userListTitleE7}>Delete</div>
           </div>
-          <div className={styles.userListScroll}>
-            {userListData.map((userData: any, index: number) => (
-              <UserListEntry key={index} data={userData} />
-            ))}
-          </div>
+          <Scroll />
         </div>
       </div>
     </main>

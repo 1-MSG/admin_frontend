@@ -25,6 +25,7 @@ const RankChart: React.FC<RankChartProps> = ({ productValue }) => {
     const data = productValue.map((item) =>
       parseInt(item.productSellTotalCount)
     ); // 각 항목의 값 추출
+    console.log(data);
 
     const ctx: any = chartRef.current?.getContext("2d");
     new Chart(ctx, {
