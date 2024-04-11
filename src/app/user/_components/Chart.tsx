@@ -2,8 +2,24 @@
 
 import React, { useEffect } from "react";
 import Chart from "chart.js";
+interface MonthData {
+  year: number;
+  month: string;
+  count: number;
+}
+interface Props {
+  data: MonthData[][];
+}
 
-export default function CardLineChart() {
+export default function CardLineChart({ data }: Props) {
+  const currentYear: (number | null)[] = [];
+  data.forEach((yearData) => {
+    yearData.forEach((monthData) => {
+      if (monthData.year === 2024) {
+        currentYear.push(monthData.count === 0 ? null : monthData.count);
+      }
+    });
+  });
   useEffect(() => {
     const data = {
       labels: [
@@ -25,7 +41,7 @@ export default function CardLineChart() {
           label: new Date().getFullYear().toString(),
           backgroundColor: "white",
           borderColor: "white",
-          data: [65, 78, 66, 44, 56, 67, 75, 65, 78, 66, 44, 56, 67, 75],
+          data: currentYear,
           fill: false,
           borderWidth: 2, // 선 두께 조절
         },

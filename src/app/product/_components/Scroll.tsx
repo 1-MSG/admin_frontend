@@ -5,6 +5,7 @@ import { QueryClient, useInfiniteQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import src from "@/assets/image/tempProduct/tempProduct.png";
 import styles from "@/styles/product.module.css";
+import Link from "next/link";
 interface ScrollProps {
   keyword: string; // 부모 컴포넌트에서 전달되는 검색어
 }
@@ -15,7 +16,7 @@ export default function Scroll({ keyword }: ScrollProps) {
   const fetchPosts = async ({ pageParam = 1 }: { pageParam?: number }) => {
     try {
       const response = await fetch(
-        `https://sssg.shop/api/v1/search?keyword=${keyword}&pageable=${pageParam}`
+        `https://sssg.shop/api/v1/search?keyword=${keyword}&page=${pageParam}`
       );
 
       if (!response.ok) {
@@ -31,16 +32,21 @@ export default function Scroll({ keyword }: ScrollProps) {
       );
 
       console.log("준표한테 받은 데이터 > 이현님", products);
+      if (products.length === 0) {
+        return [];
+      }
+      const queryString = products
+        .map((id: any) => `productIds=${id}`)
+        .join("&");
 
+      console.log(queryString);
       const data1 = await fetch(
-        `https://sssg.shop/api/v1/products?productIds=${JSON.stringify(
-          products
-        )}`
+        `https://sssg.shop/api/v1/products?${queryString}`
       );
       const data2 = await data1.json();
-      console.log("최종적으로 보내는ㄴ api", data2);
+      console.log("최종적으로 보내는ㄴ api", data2.data);
 
-      return data2;
+      return data2.data;
 
       //이게 진짜
       // return data.data.searchProductDtos;
@@ -57,7 +63,7 @@ export default function Scroll({ keyword }: ScrollProps) {
     staleTime: 1000 * 20 * 20,
     gcTime: 300 * 1000,
     getNextPageParam: (lastPage, allPages) => {
-      if (lastPage.length < 5) {
+      if (!lastPage || lastPage.length < 5) {
         return undefined;
       }
       return allPages.length + 1;
@@ -67,6 +73,7 @@ export default function Scroll({ keyword }: ScrollProps) {
   // console.log("캐시된 데이터:", data); // 콘솔에 캐시된 데이터를 확인합니다.
 
   const products = data ? data.pages.flatMap((page) => page) : [];
+  console.log(products);
 
   const handleObserver = (entries: IntersectionObserverEntry[]) => {
     const target = entries[0];
@@ -102,20 +109,37 @@ export default function Scroll({ keyword }: ScrollProps) {
 
   return (
     <div className={styles.productPageListContainerContainer}>
-      {products.map((product, index) => (
+      {products.map((product: any, index: any) => (
         <div key={index} className={styles.productPageListContainerElement}>
           <div className={styles.productPageListImageContainer}>
-            <Image src={src} style={{ width: "100%", height: "100%" }} alt="" />
+            <img
+              src={product.productImage}
+              style={{ width: "100%", height: "100%" }}
+              alt=""
+            />
           </div>
           <div className={styles.productPageListContainerElementInfo}>
-            <div className={styles.productPageListTitle}>{product.name}</div>
-            <div className={styles.productPageListMaker}>{product.maker}</div>
-            <div className={styles.productPageListPrice}>{product.price}</div>
+            {/* <div>{product.brandId}</div> */}
+            <div className={styles.productPageListTitle}>
+              {product.productName.length > 17
+                ? product.productName.substring(0, 17) + "..."
+                : product.productName}
+            </div>
+            <div className={styles.productPageListMaker}>
+              {product.brandName}
+            </div>
+            <div className={styles.productPageListPrice}>
+              {product.productPrice}
+            </div>
             <div className={styles.productPageListReview}>
               {product.reviewCount}
             </div>
             <div className={styles.productPageBtnContainer}>
-              <button>Search</button>
+              <Link
+                href={`https://ssgcom-app.vercel.app/product-detail/productId?productId=${product.brandId}`}
+              >
+                <button>Search</button>
+              </Link>
               <button>Edit</button>
               <button>Delete</button>
             </div>
