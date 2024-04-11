@@ -3,6 +3,9 @@ import UserManage from "./_components/UserManage";
 import { FaSearch } from "react-icons/fa";
 import Chart from "@/app/user/_components/Chart";
 import Scroll from "./_components/Scroll";
+import UserSearch from "./_components/UserSearch";
+import UserDeleteList from "./_components/UserDeleteList";
+import UserBlackList from "./_components/UserBlackList";
 
 async function getUserAllCountData() {
   const res = await fetch("https://sssg.shop/api/v1/admin/users/count-user");
@@ -28,10 +31,10 @@ async function getMonthUserData() {
 export default async function Page() {
   const userCountData = await getUserAllCountData();
   const data = await getMonthUserData();
-  async function handleSearchSubmit(formData: any) {
-    "use server";
-    console.log("검색");
-  }
+  // async function handleSearchSubmit(formData: any) {
+  //   "use server";
+  //   console.log("검색");
+  // }
 
   return (
     <main className={styles.userAllContainer}>
@@ -52,19 +55,19 @@ export default async function Page() {
           <UserManage />
         </div>
         {/* 채팅 */}
-        <div className={styles.userInfoLayout2}>판도라의 상자</div>
+        <div className={styles.userInfoLayout2}>
+          <UserSearch />
+          <div className={styles.userInfoLayout2Bottom}>
+            <UserBlackList />
+            <UserDeleteList />
+          </div>
+        </div>
       </div>
       <div className={styles.userListContainer}>
         <div className={styles.userListCategoryContainer}>
           <div className={styles.userListCategoryE1}>User List</div>
         </div>
         <div className={styles.userListLayout}>
-          <form className={styles.userPageForm} onSubmit={handleSearchSubmit}>
-            <input className={styles.userPageSearchContainerInput}></input>
-            <button className={styles.userPageSearchContainerBtn}>
-              <FaSearch size={10} />
-            </button>
-          </form>
           <div className={styles.userListTitle}>
             <div className={styles.userListTitleE1}>Index</div>
             <div className={styles.userListTitleE2}>Name</div>

@@ -79,10 +79,39 @@ export default function Scroll() {
     }
   }, [isFetching]);
 
-  const handleDeleteUser = async () => {
+  const handleBlackListUser = async (userData: any) => {
+    // 사용자 데이터를 로컬 스토리지에 추가
+    const userToDelete = {
+      userId: userData.userId,
+      userName: userData.userName,
+      userInfo: userData.userInfo,
+    };
+    // 로컬 스토리지에 저장된 사용자 목록 가져오기
+    const existingUsers = localStorage.getItem("blackListUsers");
+    const updatedUsers = existingUsers
+      ? [...JSON.parse(existingUsers), userToDelete]
+      : [userToDelete];
+    // 로컬 스토리지에 업데이트된 사용자 목록 저장
+    localStorage.setItem("blackListUsers", JSON.stringify(updatedUsers));
+  };
+  const handleDeleteUser = async (userData: any) => {
     try {
+      // 사용자 데이터를 로컬 스토리지에 추가
+      const userToDelete = {
+        userId: userData.userId,
+        userName: userData.userName,
+        userInfo: userData.userInfo,
+      };
+      // 로컬 스토리지에 저장된 사용자 목록 가져오기
+      const existingUsers = localStorage.getItem("deletedUsers");
+      const updatedUsers = existingUsers
+        ? [...JSON.parse(existingUsers), userToDelete]
+        : [userToDelete];
+      // 로컬 스토리지에 업데이트된 사용자 목록 저장
+      localStorage.setItem("deletedUsers", JSON.stringify(updatedUsers));
+
       const response = await fetch(
-        "https://sssg.shop/api/v1/auth/secession/5",
+        `https://sssg.shop/api/v1/auth/secession/${userData.userId}`,
         {
           method: "DELETE",
         }
@@ -110,10 +139,12 @@ export default function Scroll() {
             {userData.status === true ? "🟢" : "⚪"}
           </div>
           <div className={styles.userListE6}>
-            <button>Black List</button>
+            <button onClick={() => handleBlackListUser(userData)}>
+              Black List
+            </button>
           </div>
           <div className={styles.userListE7}>
-            <button onClick={handleDeleteUser}>Delete</button>
+            <button onClick={() => handleDeleteUser(userData)}>Delete</button>
           </div>
         </div>
       ))}
