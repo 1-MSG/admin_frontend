@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/layout/Nav";
 import RQProvider from "./product/RQProvider";
+import responseImg from "@/assets/image/response/response.png";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +22,20 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <RQProvider>
+          <article className="responseCover">
+            <Image
+              src={responseImg}
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                width: "40%",
+                height: "12%",
+              }}
+              alt=""
+            />
+          </article>
           <Nav />
           {children}
         </RQProvider>

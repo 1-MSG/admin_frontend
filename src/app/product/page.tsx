@@ -2,6 +2,7 @@ import styles from "@/styles/product.module.css";
 import RankChart from "@/app/product/_components/Chart";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { FaSearchPlus } from "react-icons/fa";
+import Link from "next/link";
 
 async function getBestProductValueData() {
   const res = await fetch("https://sssg.shop/api/v1/ranking11");
@@ -9,6 +10,7 @@ async function getBestProductValueData() {
     throw new Error("Network Error");
   }
   const data = await res.json();
+  console.log(data.data);
 
   return data.data;
 }
@@ -74,11 +76,19 @@ export default async function Page() {
                     <div>{product.productBrand}</div>
                     <div>{product.productPrice}</div>
                   </div>
+
                   <div className={styles.icon2}>
-                    <FaSearchPlus size={15} color="grey" />
+                    <Link href={product.productImage}>
+                      <FaSearchPlus size={15} color="grey" />
+                    </Link>
                   </div>
+
                   <div className={styles.icon2}>
-                    <FaExternalLinkAlt size={15} color="grey" />
+                    <Link
+                      href={`https://ssgcom-app.vercel.app/product-detail?productId=${product.productId}`}
+                    >
+                      <FaExternalLinkAlt size={15} color="grey" />
+                    </Link>
                   </div>
                 </div>
               ))}

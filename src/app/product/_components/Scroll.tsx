@@ -140,8 +140,6 @@ export default function Scroll({ keyword }: ScrollProps) {
               >
                 <button>Search</button>
               </Link>
-              <button>Edit</button>
-              <button>Delete</button>
             </div>
           </div>
         </div>
