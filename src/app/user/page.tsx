@@ -31,10 +31,6 @@ async function getMonthUserData() {
 export default async function Page() {
   const userCountData = await getUserAllCountData();
   const data = await getMonthUserData();
-  // async function handleSearchSubmit(formData: any) {
-  //   "use server";
-  //   console.log("검색");
-  // }
 
   return (
     <main className={styles.userAllContainer}>

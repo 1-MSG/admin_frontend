@@ -16,7 +16,7 @@ export default function Scroll({ keyword }: ScrollProps) {
   const fetchPosts = async ({ pageParam = 1 }: { pageParam?: number }) => {
     try {
       const response = await fetch(
-        `https://sssg.shop/api/v1/search?keyword=${keyword}&page=${pageParam}`
+        `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/search?keyword=${keyword}&page=${pageParam}`
       );
 
       if (!response.ok) {
@@ -24,14 +24,11 @@ export default function Scroll({ keyword }: ScrollProps) {
       }
 
       const data = await response.json();
-      console.log("준표", data);
 
-      //이건 가짜
       const products = data.data.searchProductDtos.map(
         (item: { productId: any }) => item.productId
       );
 
-      console.log("준표한테 받은 데이터 > 이현님", products);
       if (products.length === 0) {
         return [];
       }
@@ -39,17 +36,12 @@ export default function Scroll({ keyword }: ScrollProps) {
         .map((id: any) => `productIds=${id}`)
         .join("&");
 
-      console.log(queryString);
       const data1 = await fetch(
-        `https://sssg.shop/api/v1/products?${queryString}`
+        `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/products?${queryString}`
       );
       const data2 = await data1.json();
-      console.log("최종적으로 보내는ㄴ api", data2.data);
 
       return data2.data;
-
-      //이게 진짜
-      // return data.data.searchProductDtos;
     } catch (error) {
       console.error(error);
       throw error;
@@ -69,8 +61,6 @@ export default function Scroll({ keyword }: ScrollProps) {
       return allPages.length + 1;
     },
   });
-
-  // console.log("캐시된 데이터:", data); // 콘솔에 캐시된 데이터를 확인합니다.
 
   const products = data ? data.pages.flatMap((page) => page) : [];
   console.log(products);
@@ -119,7 +109,6 @@ export default function Scroll({ keyword }: ScrollProps) {
             />
           </div>
           <div className={styles.productPageListContainerElementInfo}>
-            {/* <div>{product.brandId}</div> */}
             <div className={styles.productPageListTitle}>
               {product.productName.length > 17
                 ? product.productName.substring(0, 17) + "..."

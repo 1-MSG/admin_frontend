@@ -10,7 +10,9 @@ async function getUserAllCountData() {
   return data.data.usersCount;
 }
 async function getUserConnectCountData() {
-  const res = await fetch("https://sssg.shop/api/v1/admin/users/connect-user");
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/admin/users/connect-user`
+  );
   if (!res.ok) {
     throw new Error("Network Error");
   }
@@ -21,7 +23,7 @@ async function getUserConnectCountData() {
 
 async function getNewUserCountData() {
   const res = await fetch(
-    "https://sssg.shop/api/v1/admin/users/count-today-user"
+    `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/admin/users/count-today-user`
   );
   if (!res.ok) {
     throw new Error("Network Error");
@@ -33,7 +35,7 @@ async function getNewUserCountData() {
 
 async function getUserDisConnectCountData() {
   const res = await fetch(
-    "https://sssg.shop/api/v1/admin/users/count-secession-user"
+    `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/admin/users/count-secession-user`
   );
   if (!res.ok) {
     throw new Error("Network Error");

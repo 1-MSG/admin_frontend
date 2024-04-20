@@ -6,7 +6,7 @@ import TestPerformance from "./_components/TestPerformance";
 
 async function getMonthUserData() {
   const res = await fetch(
-    "https://sssg.shop/api/v1/admin/users/count-monthly-assign"
+    `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/admin/users/count-monthly-assign`
   );
   if (!res.ok) {
     throw new Error("Network Error");
@@ -21,7 +21,6 @@ export default async function Home() {
   return (
     <main className={styles.mainPageLeftBody}>
       <CardLineChart data={data} />
-      {/* <TestPerformance /> */}
       <div
         style={{
           background: "#ff6c6f",

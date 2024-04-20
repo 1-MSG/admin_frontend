@@ -14,7 +14,6 @@ interface Props {
 
 export default function ChildComponent({ data }: Props) {
   console.log(data);
-  // temp1, temp2 배열 생성
   const preYear: (number | null)[] = [];
   const currentYear: (number | null)[] = [];
   data.forEach((yearData) => {

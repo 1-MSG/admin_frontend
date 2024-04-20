@@ -29,7 +29,7 @@ export default function Page() {
             onChange={handleInputChange}
           />
           <button
-            type="button" // 새로고침 방지를 위해 type 속성을 button으로 설정
+            type="button"
             className={styles.productPageSearchContainerBtn}
             onClick={handleButtonClick}
           >

@@ -14,9 +14,8 @@ const TestPerformance: React.FC = () => {
       const productDetailTimes: number[] = [];
 
       for (let i = 0; i < 1000; i++) {
-        // 검색 요청
         const searchResponse = await fetch(
-          `https://sssg.shop/api/v1/search?keyword=여성&page=0`
+          `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/search?keyword=여성&page=0`
         );
         if (!searchResponse.ok) {
           throw new Error("Network response was not ok");
@@ -26,10 +25,8 @@ const TestPerformance: React.FC = () => {
         searchTimes.push(
           Math.abs(searchMilliseconds - searchData.data.responseTime)
         );
-
-        // 제품 상세 정보 요청
         const productResponse = await fetch(
-          `https://sssg.shop/api/v1/products?productIds=648&productIds=632&productIds=619&productIds=617&productIds=616&productIds=610&productIds=502&productIds=500&productIds=499&productIds=492`
+          `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/products?productIds=648&productIds=632&productIds=619&productIds=617&productIds=616&productIds=610&productIds=502&productIds=500&productIds=499&productIds=492`
         );
         if (!productResponse.ok) {
           throw new Error("Network response was not ok");

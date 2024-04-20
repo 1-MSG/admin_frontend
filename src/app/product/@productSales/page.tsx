@@ -19,7 +19,9 @@ async function getProductSaleValueExchangeRate() {
 
 //쇼핑몰 수익 api
 async function getProductSaleValueData() {
-  const res = await fetch("https://sssg.shop/api/v1/admin/orders-price");
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/admin/orders-price`
+  );
   if (!res.ok) {
     throw new Error("Network Error");
   }

@@ -4,17 +4,9 @@ import React, { useState, useEffect } from "react";
 import styles from "@/styles/main.module.css";
 
 export default function Performance() {
-  // const [percentage, setPercentage] = useState(77);
   const [searchTime, setSearchTime] = useState(0);
   const [productDetailTime, setProductDetailTime] = useState(0);
 
-  //값 변화함수
-  // const updatePercentage = () => {
-  //   const newPercentage = Math.floor(Math.random() * 101);
-  //   setPercentage(newPercentage);
-  // };
-
-  //ms
   const handleFormSubmit = async () => {
     try {
     } catch (error) {
@@ -22,9 +14,8 @@ export default function Performance() {
     }
 
     try {
-      // 입력된 텍스트를 기반으로 API 요청
       const response = await fetch(
-        `https://sssg.shop/api/v1/search?keyword=여성&page=0`
+        `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/search?keyword=여성&page=0`
       );
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -36,9 +27,8 @@ export default function Performance() {
       console.error("Error fetching data:", error);
     }
     try {
-      // 입력된 텍스트를 기반으로 API 요청
       const response = await fetch(
-        `https://sssg.shop/api/v1/products?productIds=648&productIds=632&productIds=619&productIds=617&productIds=616&productIds=610&productIds=502&productIds=500&productIds=499&productIds=492`
+        `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/products?productIds=648&productIds=632&productIds=619&productIds=617&productIds=616&productIds=610&productIds=502&productIds=500&productIds=499&productIds=492`
       );
       if (!response.ok) {
         throw new Error("Network response was not ok");
