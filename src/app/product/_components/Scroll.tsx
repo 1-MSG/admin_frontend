@@ -73,6 +73,8 @@ export default function Scroll({ keyword }: ScrollProps) {
     }
   };
 
+  console.log("hello");
+
   useEffect(() => {
     const observer = new IntersectionObserver(handleObserver, {
       root: null,

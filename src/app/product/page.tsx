@@ -5,7 +5,9 @@ import { FaSearchPlus } from "react-icons/fa";
 import Link from "next/link";
 
 async function getBestProductValueData() {
-  const res = await fetch("https://sssg.shop/api/v1/ranking11");
+  const res = await fetch("https://sssg.shop/api/v1/ranking11", {
+    next: { revalidate: 3600 },
+  });
   if (!res.ok) {
     throw new Error("Network Error");
   }
@@ -13,18 +15,6 @@ async function getBestProductValueData() {
   console.log(data.data);
 
   return data.data;
-}
-
-async function getBestProductData() {
-  const res = await fetch(
-    "https://gist.githubusercontent.com/YOON-CC/2451c25abc4a7b690a0723957cc5c46a/raw/136d77dd3c71414ef1798ef320d1e43b0975fb15/bestPorduct.json"
-  );
-  if (!res.ok) {
-    throw new Error("Network Error");
-  }
-  const data = await res.json();
-
-  return data.products;
 }
 
 export default async function Page() {

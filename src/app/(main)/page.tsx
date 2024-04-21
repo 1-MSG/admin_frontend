@@ -6,7 +6,10 @@ import TestPerformance from "./_components/TestPerformance";
 
 async function getMonthUserData() {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/admin/users/count-monthly-assign`
+    `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/admin/users/count-monthly-assign`,
+    {
+      next: { revalidate: 3600 },
+    }
   );
   if (!res.ok) {
     throw new Error("Network Error");

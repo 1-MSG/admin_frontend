@@ -19,11 +19,8 @@ export default function Scroll() {
       }
 
       const data = await response.json();
-      console.log(data.data);
       return data.data;
 
-      //이게 진짜
-      // return data.data.searchProductDtos;
     } catch (error) {
       console.error(error);
       throw error;
@@ -43,8 +40,6 @@ export default function Scroll() {
       return allPages.length + 1;
     },
   });
-
-  // console.log("캐시된 데이터:", data); // 콘솔에 캐시된 데이터를 확인합니다.
 
   const userListData = data ? data.pages.flatMap((page) => page) : [];
   const handleObserver = (entries: IntersectionObserverEntry[]) => {
